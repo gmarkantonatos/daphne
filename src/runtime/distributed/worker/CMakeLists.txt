@@ -42,6 +42,7 @@ set(LIBS
         DaphneCatalogParser
         DaphneMetaDataParser
         Arrow::arrow_shared
+        tdms::tdms
         Parquet::parquet_shared
         Util)
 

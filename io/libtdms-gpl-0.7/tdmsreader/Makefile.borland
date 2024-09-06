@@ -1,0 +1,36 @@
+####### Input directories
+
+SRCDIR   = ../src/
+INCDIR	 = ../include
+LIBDIR	 = ../
+
+####### Compiler, tools and options
+
+CC            = bcc32x
+CFLAGS        = -w
+INCPATH       = -I. -I$(INCDIR)
+LIBPATH       = -L. -L$(LIBDIR)
+DELETE        = del
+
+OBJECTS       = main.obj
+
+TARGET        = tdmsreader.exe
+
+####### Build rules
+
+first: all clean
+
+all: Makefile $(TARGET)
+
+$(TARGET):  $(OBJECTS)
+# Build the target from the .OBJ files:
+	$(CC) $(OBJECTS) $(LIBPATH) libtdms.lib -o $(TARGET)
+
+clean:
+	-$(DELETE) $(OBJECTS)
+	-$(DELETE) *.tds
+
+####### Compile
+ 
+main.obj: main.cpp
+	$(CC) $(CFLAGS) $(INCPATH) -c *.cpp

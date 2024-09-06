@@ -1,0 +1,4 @@
+one = [1,1,1];
+writeFrame(one, "test.csv");
+// a = readFrame("test");
+// print(a);

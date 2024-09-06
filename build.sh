@@ -1008,6 +1008,30 @@ if [ $WITH_DEPS -gt 0 ]; then
     fi
 fi
 
+    #------------------------------------------------------------------------------
+    # 8.10 Build tdms 
+    #------------------------------------------------------------------------------
+    tdmsVersion="1.0.0"  
+    tdmsDirName="tdms-$tdmsVersion"
+    tdmsSourceDir="/home/gerasmark/daphne/io/libtdms-gpl-0.7"  
+    tdmsBuildDir="$buildPrefix/$tdmsDirName"
+    tdmsInstallDir="$installPrefix/tdms"
+    dep_tdms=("tdms_v${tdmsVersion}" "v1")
+
+    if ! is_dependency_installed "${dep_tdms[@]}"; then
+        daphne_msg "Building and installing tdms version ${tdmsVersion}"
+        mkdir -p "$tdmsBuildDir"
+        cmake -G Ninja -S "$tdmsSourceDir" -B "$tdmsBuildDir" \
+            -DCMAKE_INSTALL_PREFIX="$tdmsInstallDir"
+        cmake --build "$tdmsBuildDir" --target install/strip
+        dependency_install_success "${dep_tdms[@]}"
+    else
+        daphne_msg "No need to build tdms again."
+    fi
+
+
+
+
 #******************************************************************************
 # #9 Build DAPHNE target.
 #******************************************************************************

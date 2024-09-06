@@ -1,0 +1,36 @@
+libtdms Changelog:
+------------------------
+2024/07/23 - Release 0.7:
+- Fixed reading data from channels with null raw data index.
+- Improved handling of parsing errors.
+- Improved tdmsreader tool: added the -d option which allows parsing of all *.tdms files in a given directory. 
+------------------------
+2022/03/14 - Release 0.6:
+- Fixed parsing of files having an invalid value for the dimension of channels.
+- Improved handling of the TDMS file version number information.
+------------------------
+2020/07/16 - Release 0.5:
+- Added makefile for Windows systems to be used with Borland C++ compiler.
+------------------------
+2019/03/08 - Release 0.4:
+- Improved memory handling: added the possibility to only parse a file without storing the data in the channels.
+- Added parent TdmsObject to TdmsGroup to allow access to object properties.
+- Added new TdmsSegment class.
+- Fixed import of interleaved DAQmx data.
+- Improved tdmsreader demo application. 
+------------------------
+2017/01/14 - Release 0.3: 
+- Added support for DAQmx data type.
+- Fixed missing headers preventing compilation on Windows and Linux.
+- Fixed possible crashes on Windows due to invalid timestamps.
+- Added makefiles for Windows systems (to be used with MinGW compiler).
+- Added qmake .pro files for users that feel more comfortable with this build system.
+------------------------
+2017/01/06 - Release 0.2: 
+- Fixed parsing of files containing segments with raw data index 0.
+- Fixed import of strings from raw data.
+- Added support for floating-point data types with unit.
+- Added support for complex data types (tdsTypeComplexSingleFloat and tdsTypeComplexDoubleFloat).
+- Improved output of tdmsreader application and added two command line options: help (-h) and verbose output (-v).
+------------------------
+2015/09/21 - Release 0.1: Initial release.

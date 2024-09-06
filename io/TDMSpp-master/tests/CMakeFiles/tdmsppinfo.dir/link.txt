@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/tdmsppinfo.dir/tdmsppinfo.cpp.o -o tdmsppinfo  ../src/libtdmspp.a 

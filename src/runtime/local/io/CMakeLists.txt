@@ -15,4 +15,11 @@
 add_library(IO
         utils.cpp
 )
-target_link_libraries(IO)
+target_link_libraries(IO PRIVATE tdms::tdms)
+get_target_property(tdms_include_dirs tdms::tdms INTERFACE_INCLUDE_DIRECTORIES)
+message(STATUS "tdms include directories: ${tdms_include_dirs}")
+
+get_target_property(tdms_lib tdms::tdms IMPORTED_LOCATION)
+message(STATUS "tdms library location: ${tdms_lib}")
+
+

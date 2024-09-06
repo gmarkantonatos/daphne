@@ -158,6 +158,14 @@ find_package(Parquet REQUIRED)
 # support for Eigen library
 find_package (Eigen3 REQUIRED)
 
+# support for TDMS library
+
+find_package(tdms REQUIRED)
+
+
+
+
+
 option(USE_FPGAOPENCL "Whether to activate compilation of FPGA OpenCL features" OFF)
 if(USE_FPGAOPENCL)
 	if(NOT DEFINED ENV{QUARTUSDIR})

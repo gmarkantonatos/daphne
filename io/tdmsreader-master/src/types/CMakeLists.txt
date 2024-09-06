@@ -1,0 +1,47 @@
+set (SOURCES
+    ${SOURCES}
+    types/DataValue.cpp
+    types/DataTypeFactory.cpp
+    types/Int8.cpp
+    types/Int8Array.cpp
+    types/Int8Value.cpp
+    types/Int16.cpp
+    types/Int16Array.cpp
+    types/Int16Value.cpp
+    types/Int32.cpp
+    types/Int32Array.cpp
+    types/Int32Value.cpp
+    types/Int64.cpp
+    types/Int64Array.cpp
+    types/Int64Value.cpp
+    types/UInt8.cpp
+    types/UInt8Array.cpp
+    types/UInt8Value.cpp
+    types/UInt16.cpp
+    types/UInt16Array.cpp
+    types/UInt16Value.cpp
+    types/UInt32.cpp
+    types/UInt32Array.cpp
+    types/UInt32Value.cpp
+    types/UInt64.cpp
+    types/UInt64Array.cpp
+    types/UInt64Value.cpp
+    types/Float32.cpp
+    types/Float32Array.cpp
+    types/Float32Value.cpp
+    types/Float64.cpp
+    types/Float64Array.cpp
+    types/Float64Value.cpp
+    types/Float128.cpp
+    types/Float128Array.cpp
+    types/Float128Value.cpp
+    types/String.cpp
+    types/StringArray.cpp
+    types/StringValue.cpp
+    types/Bool.cpp
+    types/BoolArray.cpp
+    types/BoolValue.cpp
+    PARENT_SCOPE
+)
+
+add_subdirectory(test)

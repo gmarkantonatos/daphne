@@ -1,0 +1,39 @@
+####### Input directories
+
+SRCDIR   = ./src/
+INCDIR	 = ./include
+
+####### Compiler, tools and options
+
+CC            = bcc32x
+CFLAGS        = -O -w
+INCPATH       = -I. -I$(INCDIR)
+DELETE        = del
+
+OBJECTS       = TdmsChannel.obj\
+				TdmsGroup.obj\
+				TdmsLeadIn.obj\
+				TdmsMetaData.obj\
+				TdmsObject.obj\
+				TdmsParser.obj\
+				TdmsSegment.obj
+
+TARGET        = libtdms.lib
+
+####### Build rules
+
+first: all clean
+
+all: Makefile $(TARGET)
+
+$(TARGET):  $(OBJECTS)
+# Build the target from the .OBJ files:
+	tlib libtdms.lib /u /a /C TdmsChannel TdmsGroup TdmsLeadIn TdmsMetaData TdmsObject TdmsParser TdmsSegment
+
+clean:
+	-$(DELETE) $(OBJECTS)
+
+####### Compile
+	
+TdmsChannel.obj: $(SRCDIR)*.cpp
+    $(CC) $(CFLAGS) $(INCPATH) -c $(SRCDIR)*.cpp

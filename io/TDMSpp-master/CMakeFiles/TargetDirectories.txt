@@ -1,0 +1,8 @@
+/home/gerasmark/daphne/io/TDMSpp-master/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/TDMSpp-master/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/TDMSpp-master/src/CMakeFiles/tdmspp.dir
+/home/gerasmark/daphne/io/TDMSpp-master/src/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/TDMSpp-master/src/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/TDMSpp-master/tests/CMakeFiles/tdmsppinfo.dir
+/home/gerasmark/daphne/io/TDMSpp-master/tests/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/TDMSpp-master/tests/CMakeFiles/rebuild_cache.dir

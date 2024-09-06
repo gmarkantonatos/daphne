@@ -114,7 +114,7 @@ endif()
 
 
 list(APPEND LIBS DaphneMetaDataParser MLIRDaphne MLIRDaphneTransforms)
-list(APPEND LIBS Eigen3::Eigen Arrow::arrow_shared Parquet::parquet_shared)
+list(APPEND LIBS Eigen3::Eigen Arrow::arrow_shared Parquet::parquet_shared tdms::tdms)
 
 if(USE_PAPI)
     find_library(PAPI_LIB NAMES libpapi.so HINTS ${PROJECT_BINARY_DIR}/installed/lib REQUIRED)

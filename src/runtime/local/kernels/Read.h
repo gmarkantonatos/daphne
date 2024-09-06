@@ -27,10 +27,14 @@
 #include <runtime/local/io/ReadParquet.h>
 #include <runtime/local/io/ReadDaphne.h>
 #include <parser/metadata/MetaDataParser.h>
+// #include <runtime/local/io/ReadTdms.h>
 
 #include <string>
 #include <regex>
 #include <map>
+#include <TdmsChannel.h>
+
+
 
 struct FileExt {
 	static std::map<std::string, int> create_map() {
@@ -39,6 +43,7 @@ struct FileExt {
 		m["mtx"] = 1;
 		m["parquet"] = 2;
 		m["dbdf"] = 3;
+//		m["tdms"] = 4;
 		return m;
 	}
 	static const std::map<std::string, int> map;
@@ -99,6 +104,11 @@ struct Read<DenseMatrix<VT>> {
 	case 3:
 		readDaphne(res, filename);
                 break;
+	// case 4:
+	//     if(res == nullptr)
+    //         res = DataObjectFactory::create<DenseMatrix<VT>>(fmd.numRows, fmd.numCols, false);
+    //     readTdms(res, filename, fmd.numRows, fmd.numCols, ',');
+    //     break;
         default:
             throw std::runtime_error("File extension not supported");
 	}

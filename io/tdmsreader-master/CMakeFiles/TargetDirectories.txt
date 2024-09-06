@@ -1,0 +1,11 @@
+/home/gerasmark/daphne/io/tdmsreader-master/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/CMakeFiles/readTDMS.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/types/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/types/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/types/test/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/types/test/CMakeFiles/rebuild_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/test/CMakeFiles/edit_cache.dir
+/home/gerasmark/daphne/io/tdmsreader-master/src/test/CMakeFiles/rebuild_cache.dir
