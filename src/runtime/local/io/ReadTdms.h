@@ -62,19 +62,19 @@ template <class DTRes> struct ReadTdms {
 template <class DTRes>
 void readTdms(DTRes *&res, const char *filename, size_t numRows, size_t numCols,
              char delim) {
-  ReadCsv<DTRes>::apply(res, filename, numRows, numCols, delim);
+  ReadTdms<DTRes>::apply(res, filename, numRows, numCols, delim);
 }
 
 template <class DTRes>
 void readTdms(DTRes *&res, const char *filename, size_t numRows, size_t numCols,
              char delim, ValueTypeCode *schema) {
-  ReadCsv<DTRes>::apply(res, filename, numRows, numCols, delim, schema);
+  ReadTdms<DTRes>::apply(res, filename, numRows, numCols, delim, schema);
 }
 
 template <class DTRes>
 void readTdms(DTRes *&res, const char *filename, size_t numRows, size_t numCols,
              char delim, ssize_t numNonZeros, bool sorted = true) {
-    ReadCsv<DTRes>::apply(res, filename, numRows, numCols, delim, numNonZeros, sorted);
+    ReadTdms<DTRes>::apply(res, filename, numRows, numCols, delim, numNonZeros, sorted);
 }
 
 // ****************************************************************************
