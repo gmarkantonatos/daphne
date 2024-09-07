@@ -15,4 +15,3 @@
  */
 
 #include <runtime/local/io/utils.h>
-#include <TdmsChannel.h>

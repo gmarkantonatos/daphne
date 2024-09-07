@@ -1,0 +1,16 @@
+module {
+  func.func @main() {
+    %0 = "daphne.constant"() {value = "exampleMeasurements.tdms"} : () -> !daphne.String
+    %1 = "daphne.constant"() {value = false} : () -> i1
+    %2 = "daphne.constant"() {value = true} : () -> i1
+    %3 = "daphne.constant"() {value = "test_matrix.csv"} : () -> !daphne.String
+    %4 = "daphne.constant"() {value = "test_frame.csv"} : () -> !daphne.String
+    %5 = "daphne.read"(%4) : (!daphne.String) -> !daphne.Frame<3x[1: si64], ?>
+    %6 = "daphne.read"(%3) : (!daphne.String) -> !daphne.Matrix<3x1xsi64>
+    "daphne.print"(%5, %2, %1) : (!daphne.Frame<3x[1: si64], ?>, i1, i1) -> ()
+    "daphne.print"(%6, %2, %1) : (!daphne.Matrix<3x1xsi64>, i1, i1) -> ()
+    %7 = "daphne.read"(%0) : (!daphne.String) -> !daphne.Matrix<?x?x!daphne.Unknown>
+    "daphne.print"(%7, %2, %1) : (!daphne.Matrix<?x?x!daphne.Unknown>, i1, i1) -> ()
+    "daphne.return"() : () -> ()
+  }
+}

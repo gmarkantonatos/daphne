@@ -1,0 +1,2025 @@
+[DAPHNE]..No need to build PAPI again................................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build hwloc again...............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build Antlr4 again..............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to download Catch2 again...........................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build OpenBlas again............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to download nlohmannjson again.....................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build Abseil again..............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build OpenMPI again.............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build GRPC again................................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build Arrow again...............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build spdlog again..............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build eigen again...............................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build MLIR/LLVM again...........................................................[07.09.24 19:03:26]
+[DAPHNE]..No need to build tdms again................................................................[07.09.24 19:03:26]
+[DAPHNE]..Build Daphne...............................................................................[07.09.24 19:03:26]
+-- Using MLIRConfig.cmake in: /home/gerasmark/daphne/thirdparty/installed/lib/cmake/mlir
+-- Using LLVMConfig.cmake in: /home/gerasmark/daphne/thirdparty/installed/lib/cmake/llvm
+-- Building with -fPIC
+-- CMAKE_PREFIX_PATH:  /home/gerasmark/daphne/thirdparty/installed
+-- Using lld
+-- Arrow version: 13.0.0
+-- Found the Arrow shared library: /home/gerasmark/daphne/thirdparty/installed/lib/libarrow.so.1300.0.0
+-- Found the Arrow import library: ARROW_IMPORT_LIB-NOTFOUND
+-- Found the Arrow static library: /home/gerasmark/daphne/thirdparty/installed/lib/libarrow.a
+-- Parquet version: 13.0.0
+-- Found the Parquet shared library: /home/gerasmark/daphne/thirdparty/installed/lib/libparquet.so.1300.0.0
+-- Found the Parquet import library: PARQUET_IMPORT_LIB-NOTFOUND
+-- Found the Parquet static library: /home/gerasmark/daphne/thirdparty/installed/lib/libparquet.a
+-- ANTLR4_JAR_LOCATION is /home/gerasmark/daphne/thirdparty/installed/share/antlr4/antlr-4.9.2-complete.jar
+-- Antlr4 DaphneDSLGrammar - Building Common Include-, Source- and Tokenfiles, Visitor Include- and Sourcefiles
+-- Antlr4 SQLGrammar - Building Common Include-, Source- and Tokenfiles, Visitor Include- and Sourcefiles
+-- ANTLR4_SQL_DIR is /home/gerasmark/daphne/build/antlr4_generated_src/SQLGrammar
+-- tdms include directories: /home/gerasmark/daphne/thirdparty/tdms/include
+-- tdms library location: /home/gerasmark/daphne/thirdparty/tdms/lib/libtdms.a
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/gerasmark/daphne/build
+[1/3] Building CXX object src/runtime/local/kernels/CMakeFiles/AllKernels.dir/kernels.cpp.o
+FAILED: src/runtime/local/kernels/CMakeFiles/AllKernels.dir/kernels.cpp.o 
+/usr/bin/c++ -DAllKernels_EXPORTS -DCARES_STATICLIB -DUSE_PAPI -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -I/home/gerasmark/daphne/src -I/home/gerasmark/daphne/build/src -I/home/gerasmark/daphne/build/src/runtime/distributed/proto -isystem /home/gerasmark/daphne/thirdparty/installed/include -isystem /home/gerasmark/daphne/thirdparty/tdms/include -isystem /home/gerasmark/daphne/thirdparty/installed/include/eigen3 -fPIC -fno-semantic-interposition -fvisibility-inlines-hidden -Werror=date-time -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wno-missing-field-initializers -Wimplicit-fallthrough -Wno-class-memaccess -Wno-redundant-move -Wno-pessimizing-move -Wno-noexcept-type -Wdelete-non-virtual-dtor -Wsuggest-override -Wno-comment -Wno-misleading-indentation -Wctad-maybe-unsupported -fdiagnostics-color -ffunction-sections -fdata-sections -fuse-ld=lld -O3 -DNDEBUG -O3 -fPIC   -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -std=gnu++17 -MD -MT src/runtime/local/kernels/CMakeFiles/AllKernels.dir/kernels.cpp.o -MF src/runtime/local/kernels/CMakeFiles/AllKernels.dir/kernels.cpp.o.d -o src/runtime/local/kernels/CMakeFiles/AllKernels.dir/kernels.cpp.o -c /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_double__void(DenseMatrix<double>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:13: error: reference to ‘map’ is ambiguous
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:36: error: expected primary-expression before ‘,’ token
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:56: error: expected primary-expression before ‘>’ token
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:59: warning: value computed is not used [-Wunused-value]
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12457:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12457 |             map<DenseMatrix<double>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_float__void(DenseMatrix<double>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:13: error: reference to ‘map’ is ambiguous
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:36: error: expected primary-expression before ‘,’ token
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:55: error: expected primary-expression before ‘>’ token
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                       ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:58: warning: value computed is not used [-Wunused-value]
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:58: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:69: warning: right operand of comma operator has no effect [-Wunused-value]
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                     ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12464:75: warning: right operand of comma operator has no effect [-Wunused-value]
+12464 |             map<DenseMatrix<double>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                           ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_int64_t__void(DenseMatrix<double>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:13: error: reference to ‘map’ is ambiguous
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:36: error: expected primary-expression before ‘,’ token
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:57: error: expected primary-expression before ‘>’ token
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:60: warning: value computed is not used [-Wunused-value]
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12471:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12471 |             map<DenseMatrix<double>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_int32_t__void(DenseMatrix<double>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:13: error: reference to ‘map’ is ambiguous
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:36: error: expected primary-expression before ‘,’ token
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:57: error: expected primary-expression before ‘>’ token
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:60: warning: value computed is not used [-Wunused-value]
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12478:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12478 |             map<DenseMatrix<double>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_int8_t__void(DenseMatrix<double>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:13: error: reference to ‘map’ is ambiguous
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:36: error: expected primary-expression before ‘,’ token
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:56: error: expected primary-expression before ‘>’ token
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:59: warning: value computed is not used [-Wunused-value]
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12485:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12485 |             map<DenseMatrix<double>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_uint64_t__void(DenseMatrix<double>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:13: error: reference to ‘map’ is ambiguous
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:36: error: expected primary-expression before ‘,’ token
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:58: error: expected primary-expression before ‘>’ token
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:61: warning: value computed is not used [-Wunused-value]
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12492:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12492 |             map<DenseMatrix<double>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_uint32_t__void(DenseMatrix<double>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:13: error: reference to ‘map’ is ambiguous
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:36: error: expected primary-expression before ‘,’ token
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:58: error: expected primary-expression before ‘>’ token
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:61: warning: value computed is not used [-Wunused-value]
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12499:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12499 |             map<DenseMatrix<double>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_double__DenseMatrix_uint8_t__void(DenseMatrix<double>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:13: error: reference to ‘map’ is ambiguous
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:36: error: expected primary-expression before ‘,’ token
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:57: error: expected primary-expression before ‘>’ token
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:60: warning: value computed is not used [-Wunused-value]
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12506:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12506 |             map<DenseMatrix<double>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_double__void(DenseMatrix<float>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:13: error: reference to ‘map’ is ambiguous
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:35: error: expected primary-expression before ‘,’ token
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:55: error: expected primary-expression before ‘>’ token
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                       ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:58: warning: value computed is not used [-Wunused-value]
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:58: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:69: warning: right operand of comma operator has no effect [-Wunused-value]
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                     ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12513:75: warning: right operand of comma operator has no effect [-Wunused-value]
+12513 |             map<DenseMatrix<float>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                           ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_float__void(DenseMatrix<float>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:13: error: reference to ‘map’ is ambiguous
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:35: error: expected primary-expression before ‘,’ token
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:54: error: expected primary-expression before ‘>’ token
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                      ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:57: warning: value computed is not used [-Wunused-value]
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:57: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:68: warning: right operand of comma operator has no effect [-Wunused-value]
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                    ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12520:74: warning: right operand of comma operator has no effect [-Wunused-value]
+12520 |             map<DenseMatrix<float>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                          ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_int64_t__void(DenseMatrix<float>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:13: error: reference to ‘map’ is ambiguous
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:35: error: expected primary-expression before ‘,’ token
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:56: error: expected primary-expression before ‘>’ token
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:59: warning: value computed is not used [-Wunused-value]
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12527:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12527 |             map<DenseMatrix<float>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_int32_t__void(DenseMatrix<float>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:13: error: reference to ‘map’ is ambiguous
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:35: error: expected primary-expression before ‘,’ token
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:56: error: expected primary-expression before ‘>’ token
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:59: warning: value computed is not used [-Wunused-value]
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12534:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12534 |             map<DenseMatrix<float>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_int8_t__void(DenseMatrix<float>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:13: error: reference to ‘map’ is ambiguous
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:35: error: expected primary-expression before ‘,’ token
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:55: error: expected primary-expression before ‘>’ token
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                       ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:58: warning: value computed is not used [-Wunused-value]
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:58: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:69: warning: right operand of comma operator has no effect [-Wunused-value]
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                     ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12541:75: warning: right operand of comma operator has no effect [-Wunused-value]
+12541 |             map<DenseMatrix<float>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                           ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_uint64_t__void(DenseMatrix<float>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:13: error: reference to ‘map’ is ambiguous
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:35: error: expected primary-expression before ‘,’ token
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:57: error: expected primary-expression before ‘>’ token
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:60: warning: value computed is not used [-Wunused-value]
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12548:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12548 |             map<DenseMatrix<float>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_uint32_t__void(DenseMatrix<float>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:13: error: reference to ‘map’ is ambiguous
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:35: error: expected primary-expression before ‘,’ token
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:57: error: expected primary-expression before ‘>’ token
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:60: warning: value computed is not used [-Wunused-value]
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12555:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12555 |             map<DenseMatrix<float>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_float__DenseMatrix_uint8_t__void(DenseMatrix<float>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:13: error: reference to ‘map’ is ambiguous
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:35: error: expected primary-expression before ‘,’ token
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                   ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:56: error: expected primary-expression before ‘>’ token
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:59: warning: value computed is not used [-Wunused-value]
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12562:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12562 |             map<DenseMatrix<float>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_double__void(DenseMatrix<long int>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:13: error: reference to ‘map’ is ambiguous
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:37: error: expected primary-expression before ‘,’ token
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:57: error: expected primary-expression before ‘>’ token
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:60: warning: value computed is not used [-Wunused-value]
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12569:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12569 |             map<DenseMatrix<int64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_float__void(DenseMatrix<long int>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:13: error: reference to ‘map’ is ambiguous
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:37: error: expected primary-expression before ‘,’ token
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:56: error: expected primary-expression before ‘>’ token
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:59: warning: value computed is not used [-Wunused-value]
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12576:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12576 |             map<DenseMatrix<int64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_int64_t__void(DenseMatrix<long int>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:13: error: reference to ‘map’ is ambiguous
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:37: error: expected primary-expression before ‘,’ token
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:58: error: expected primary-expression before ‘>’ token
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:61: warning: value computed is not used [-Wunused-value]
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12583:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12583 |             map<DenseMatrix<int64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_int32_t__void(DenseMatrix<long int>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:13: error: reference to ‘map’ is ambiguous
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:37: error: expected primary-expression before ‘,’ token
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:58: error: expected primary-expression before ‘>’ token
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:61: warning: value computed is not used [-Wunused-value]
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12590:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12590 |             map<DenseMatrix<int64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_int8_t__void(DenseMatrix<long int>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:13: error: reference to ‘map’ is ambiguous
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:37: error: expected primary-expression before ‘,’ token
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:57: error: expected primary-expression before ‘>’ token
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:60: warning: value computed is not used [-Wunused-value]
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12597:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12597 |             map<DenseMatrix<int64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_uint64_t__void(DenseMatrix<long int>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:13: error: reference to ‘map’ is ambiguous
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:37: error: expected primary-expression before ‘,’ token
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:59: error: expected primary-expression before ‘>’ token
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:62: warning: value computed is not used [-Wunused-value]
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12604:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12604 |             map<DenseMatrix<int64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_uint32_t__void(DenseMatrix<long int>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:13: error: reference to ‘map’ is ambiguous
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:37: error: expected primary-expression before ‘,’ token
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:59: error: expected primary-expression before ‘>’ token
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:62: warning: value computed is not used [-Wunused-value]
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12611:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12611 |             map<DenseMatrix<int64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int64_t__DenseMatrix_uint8_t__void(DenseMatrix<long int>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:13: error: reference to ‘map’ is ambiguous
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:37: error: expected primary-expression before ‘,’ token
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:58: error: expected primary-expression before ‘>’ token
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:61: warning: value computed is not used [-Wunused-value]
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12618:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12618 |             map<DenseMatrix<int64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_double__void(DenseMatrix<int>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:13: error: reference to ‘map’ is ambiguous
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:37: error: expected primary-expression before ‘,’ token
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:57: error: expected primary-expression before ‘>’ token
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:60: warning: value computed is not used [-Wunused-value]
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12625:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12625 |             map<DenseMatrix<int32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_float__void(DenseMatrix<int>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:13: error: reference to ‘map’ is ambiguous
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:37: error: expected primary-expression before ‘,’ token
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:56: error: expected primary-expression before ‘>’ token
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:59: warning: value computed is not used [-Wunused-value]
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12632:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12632 |             map<DenseMatrix<int32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_int64_t__void(DenseMatrix<int>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:13: error: reference to ‘map’ is ambiguous
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:37: error: expected primary-expression before ‘,’ token
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:58: error: expected primary-expression before ‘>’ token
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:61: warning: value computed is not used [-Wunused-value]
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12639:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12639 |             map<DenseMatrix<int32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_int32_t__void(DenseMatrix<int>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:13: error: reference to ‘map’ is ambiguous
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:37: error: expected primary-expression before ‘,’ token
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:58: error: expected primary-expression before ‘>’ token
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:61: warning: value computed is not used [-Wunused-value]
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12646:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12646 |             map<DenseMatrix<int32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_int8_t__void(DenseMatrix<int>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:13: error: reference to ‘map’ is ambiguous
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:37: error: expected primary-expression before ‘,’ token
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:57: error: expected primary-expression before ‘>’ token
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:60: warning: value computed is not used [-Wunused-value]
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12653:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12653 |             map<DenseMatrix<int32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_uint64_t__void(DenseMatrix<int>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:13: error: reference to ‘map’ is ambiguous
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:37: error: expected primary-expression before ‘,’ token
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:59: error: expected primary-expression before ‘>’ token
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:62: warning: value computed is not used [-Wunused-value]
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12660:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12660 |             map<DenseMatrix<int32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_uint32_t__void(DenseMatrix<int>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:13: error: reference to ‘map’ is ambiguous
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:37: error: expected primary-expression before ‘,’ token
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:59: error: expected primary-expression before ‘>’ token
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:62: warning: value computed is not used [-Wunused-value]
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12667:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12667 |             map<DenseMatrix<int32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int32_t__DenseMatrix_uint8_t__void(DenseMatrix<int>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:13: error: reference to ‘map’ is ambiguous
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:37: error: expected primary-expression before ‘,’ token
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:58: error: expected primary-expression before ‘>’ token
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:61: warning: value computed is not used [-Wunused-value]
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12674:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12674 |             map<DenseMatrix<int32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_double__void(DenseMatrix<signed char>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:13: error: reference to ‘map’ is ambiguous
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:36: error: expected primary-expression before ‘,’ token
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:56: error: expected primary-expression before ‘>’ token
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:59: warning: value computed is not used [-Wunused-value]
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12681:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12681 |             map<DenseMatrix<int8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_float__void(DenseMatrix<signed char>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:13: error: reference to ‘map’ is ambiguous
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:36: error: expected primary-expression before ‘,’ token
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:55: error: expected primary-expression before ‘>’ token
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                       ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:58: warning: value computed is not used [-Wunused-value]
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:58: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:69: warning: right operand of comma operator has no effect [-Wunused-value]
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                     ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12688:75: warning: right operand of comma operator has no effect [-Wunused-value]
+12688 |             map<DenseMatrix<int8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                           ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_int64_t__void(DenseMatrix<signed char>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:13: error: reference to ‘map’ is ambiguous
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:36: error: expected primary-expression before ‘,’ token
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:57: error: expected primary-expression before ‘>’ token
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:60: warning: value computed is not used [-Wunused-value]
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12695:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12695 |             map<DenseMatrix<int8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_int32_t__void(DenseMatrix<signed char>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:13: error: reference to ‘map’ is ambiguous
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:36: error: expected primary-expression before ‘,’ token
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:57: error: expected primary-expression before ‘>’ token
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:60: warning: value computed is not used [-Wunused-value]
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12702:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12702 |             map<DenseMatrix<int8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_int8_t__void(DenseMatrix<signed char>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:13: error: reference to ‘map’ is ambiguous
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:36: error: expected primary-expression before ‘,’ token
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:56: error: expected primary-expression before ‘>’ token
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:59: warning: value computed is not used [-Wunused-value]
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12709:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12709 |             map<DenseMatrix<int8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_uint64_t__void(DenseMatrix<signed char>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:13: error: reference to ‘map’ is ambiguous
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:36: error: expected primary-expression before ‘,’ token
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:58: error: expected primary-expression before ‘>’ token
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:61: warning: value computed is not used [-Wunused-value]
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12716:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12716 |             map<DenseMatrix<int8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_uint32_t__void(DenseMatrix<signed char>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:13: error: reference to ‘map’ is ambiguous
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:36: error: expected primary-expression before ‘,’ token
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:58: error: expected primary-expression before ‘>’ token
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:61: warning: value computed is not used [-Wunused-value]
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12723:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12723 |             map<DenseMatrix<int8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_int8_t__DenseMatrix_uint8_t__void(DenseMatrix<signed char>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:13: error: reference to ‘map’ is ambiguous
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:36: error: expected primary-expression before ‘,’ token
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                    ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:57: error: expected primary-expression before ‘>’ token
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:60: warning: value computed is not used [-Wunused-value]
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12730:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12730 |             map<DenseMatrix<int8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_double__void(DenseMatrix<long unsigned int>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:13: error: reference to ‘map’ is ambiguous
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:38: error: expected primary-expression before ‘,’ token
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:58: error: expected primary-expression before ‘>’ token
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:61: warning: value computed is not used [-Wunused-value]
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12737:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12737 |             map<DenseMatrix<uint64_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_float__void(DenseMatrix<long unsigned int>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:13: error: reference to ‘map’ is ambiguous
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:38: error: expected primary-expression before ‘,’ token
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:57: error: expected primary-expression before ‘>’ token
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:60: warning: value computed is not used [-Wunused-value]
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12744:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12744 |             map<DenseMatrix<uint64_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_int64_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:13: error: reference to ‘map’ is ambiguous
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:38: error: expected primary-expression before ‘,’ token
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:59: error: expected primary-expression before ‘>’ token
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:62: warning: value computed is not used [-Wunused-value]
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12751:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12751 |             map<DenseMatrix<uint64_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_int32_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:13: error: reference to ‘map’ is ambiguous
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:38: error: expected primary-expression before ‘,’ token
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:59: error: expected primary-expression before ‘>’ token
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:62: warning: value computed is not used [-Wunused-value]
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12758:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12758 |             map<DenseMatrix<uint64_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_int8_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:13: error: reference to ‘map’ is ambiguous
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:38: error: expected primary-expression before ‘,’ token
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:58: error: expected primary-expression before ‘>’ token
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:61: warning: value computed is not used [-Wunused-value]
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12765:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12765 |             map<DenseMatrix<uint64_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_uint64_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:13: error: reference to ‘map’ is ambiguous
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:38: error: expected primary-expression before ‘,’ token
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:60: error: expected primary-expression before ‘>’ token
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                            ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:63: warning: value computed is not used [-Wunused-value]
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                               ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:63: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:74: warning: right operand of comma operator has no effect [-Wunused-value]
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12772:80: warning: right operand of comma operator has no effect [-Wunused-value]
+12772 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                                ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_uint32_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:13: error: reference to ‘map’ is ambiguous
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:38: error: expected primary-expression before ‘,’ token
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:60: error: expected primary-expression before ‘>’ token
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                            ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:63: warning: value computed is not used [-Wunused-value]
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                               ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:63: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:74: warning: right operand of comma operator has no effect [-Wunused-value]
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12779:80: warning: right operand of comma operator has no effect [-Wunused-value]
+12779 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                                ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint64_t__DenseMatrix_uint8_t__void(DenseMatrix<long unsigned int>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:13: error: reference to ‘map’ is ambiguous
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:38: error: expected primary-expression before ‘,’ token
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:59: error: expected primary-expression before ‘>’ token
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:62: warning: value computed is not used [-Wunused-value]
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12786:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12786 |             map<DenseMatrix<uint64_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_double__void(DenseMatrix<unsigned int>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:13: error: reference to ‘map’ is ambiguous
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:38: error: expected primary-expression before ‘,’ token
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:58: error: expected primary-expression before ‘>’ token
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:61: warning: value computed is not used [-Wunused-value]
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12793:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12793 |             map<DenseMatrix<uint32_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_float__void(DenseMatrix<unsigned int>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:13: error: reference to ‘map’ is ambiguous
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:38: error: expected primary-expression before ‘,’ token
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:57: error: expected primary-expression before ‘>’ token
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:60: warning: value computed is not used [-Wunused-value]
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12800:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12800 |             map<DenseMatrix<uint32_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_int64_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:13: error: reference to ‘map’ is ambiguous
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:38: error: expected primary-expression before ‘,’ token
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:59: error: expected primary-expression before ‘>’ token
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:62: warning: value computed is not used [-Wunused-value]
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12807:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12807 |             map<DenseMatrix<uint32_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_int32_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:13: error: reference to ‘map’ is ambiguous
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:38: error: expected primary-expression before ‘,’ token
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:59: error: expected primary-expression before ‘>’ token
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:62: warning: value computed is not used [-Wunused-value]
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12814:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12814 |             map<DenseMatrix<uint32_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_int8_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:13: error: reference to ‘map’ is ambiguous
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:38: error: expected primary-expression before ‘,’ token
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:58: error: expected primary-expression before ‘>’ token
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:61: warning: value computed is not used [-Wunused-value]
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12821:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12821 |             map<DenseMatrix<uint32_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_uint64_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:13: error: reference to ‘map’ is ambiguous
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:38: error: expected primary-expression before ‘,’ token
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:60: error: expected primary-expression before ‘>’ token
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                            ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:63: warning: value computed is not used [-Wunused-value]
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                               ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:63: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:74: warning: right operand of comma operator has no effect [-Wunused-value]
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12828:80: warning: right operand of comma operator has no effect [-Wunused-value]
+12828 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                                ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_uint32_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:13: error: reference to ‘map’ is ambiguous
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:38: error: expected primary-expression before ‘,’ token
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:60: error: expected primary-expression before ‘>’ token
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                            ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:63: warning: value computed is not used [-Wunused-value]
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                               ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:63: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:74: warning: right operand of comma operator has no effect [-Wunused-value]
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                          ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12835:80: warning: right operand of comma operator has no effect [-Wunused-value]
+12835 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                                ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint32_t__DenseMatrix_uint8_t__void(DenseMatrix<unsigned int>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:13: error: reference to ‘map’ is ambiguous
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:38: error: expected primary-expression before ‘,’ token
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                      ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:59: error: expected primary-expression before ‘>’ token
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:62: warning: value computed is not used [-Wunused-value]
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12842:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12842 |             map<DenseMatrix<uint32_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_double__void(DenseMatrix<unsigned char>**, const DenseMatrix<double>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:13: error: reference to ‘map’ is ambiguous
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:37: error: expected primary-expression before ‘,’ token
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:57: error: expected primary-expression before ‘>’ token
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:60: warning: value computed is not used [-Wunused-value]
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12849:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12849 |             map<DenseMatrix<uint8_t>, DenseMatrix<double>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_float__void(DenseMatrix<unsigned char>**, const DenseMatrix<float>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:13: error: reference to ‘map’ is ambiguous
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:37: error: expected primary-expression before ‘,’ token
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:56: error: expected primary-expression before ‘>’ token
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                        ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:59: warning: value computed is not used [-Wunused-value]
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                           ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:59: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:70: warning: right operand of comma operator has no effect [-Wunused-value]
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                      ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12856:76: warning: right operand of comma operator has no effect [-Wunused-value]
+12856 |             map<DenseMatrix<uint8_t>, DenseMatrix<float>>(*res, arg, func, ctx);
+      |                                                                            ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_int64_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<long int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:13: error: reference to ‘map’ is ambiguous
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:37: error: expected primary-expression before ‘,’ token
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:58: error: expected primary-expression before ‘>’ token
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:61: warning: value computed is not used [-Wunused-value]
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12863:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12863 |             map<DenseMatrix<uint8_t>, DenseMatrix<int64_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_int32_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:13: error: reference to ‘map’ is ambiguous
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:37: error: expected primary-expression before ‘,’ token
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:58: error: expected primary-expression before ‘>’ token
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:61: warning: value computed is not used [-Wunused-value]
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12870:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12870 |             map<DenseMatrix<uint8_t>, DenseMatrix<int32_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_int8_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<signed char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:13: error: reference to ‘map’ is ambiguous
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:37: error: expected primary-expression before ‘,’ token
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:57: error: expected primary-expression before ‘>’ token
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                         ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:60: warning: value computed is not used [-Wunused-value]
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                            ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:60: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:71: warning: right operand of comma operator has no effect [-Wunused-value]
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                       ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12877:77: warning: right operand of comma operator has no effect [-Wunused-value]
+12877 |             map<DenseMatrix<uint8_t>, DenseMatrix<int8_t>>(*res, arg, func, ctx);
+      |                                                                             ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_uint64_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<long unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:13: error: reference to ‘map’ is ambiguous
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:37: error: expected primary-expression before ‘,’ token
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:59: error: expected primary-expression before ‘>’ token
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:62: warning: value computed is not used [-Wunused-value]
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12884:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12884 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint64_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_uint32_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<unsigned int>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:13: error: reference to ‘map’ is ambiguous
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:37: error: expected primary-expression before ‘,’ token
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:59: error: expected primary-expression before ‘>’ token
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                           ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:62: warning: value computed is not used [-Wunused-value]
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                              ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:62: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:73: warning: right operand of comma operator has no effect [-Wunused-value]
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                         ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12891:79: warning: right operand of comma operator has no effect [-Wunused-value]
+12891 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint32_t>>(*res, arg, func, ctx);
+      |                                                                               ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp: In function ‘void _map__DenseMatrix_uint8_t__DenseMatrix_uint8_t__void(DenseMatrix<unsigned char>**, const DenseMatrix<unsigned char>*, void*, int, DaphneContext*)’:
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:13: error: reference to ‘map’ is ambiguous
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |             ^~~
+In file included from /usr/include/c++/11/map:61,
+                 from /home/gerasmark/daphne/src/api/cli/DaphneUserConfig.h:31,
+                 from /home/gerasmark/daphne/src/runtime/local/context/DaphneContext.h:19,
+                 from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:3:
+/usr/include/c++/11/bits/stl_map.h:100:11: note: candidates are: ‘template<class _Key, class _Tp, class _Compare, class _Alloc> class std::map’
+  100 |     class map
+      |           ^~~
+In file included from /home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:50:
+/home/gerasmark/daphne/src/runtime/local/kernels/Map.h:43:6: note:                 ‘template<class DTRes, class DTArg> void map(DTRes*&, const DTArg*, void*, DaphneContext*)’
+   43 | void map(DTRes *& res, const DTArg * arg, void* func, DCTX(ctx)) {
+      |      ^~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:37: error: expected primary-expression before ‘,’ token
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                     ^
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:58: error: expected primary-expression before ‘>’ token
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                          ^~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:61: warning: value computed is not used [-Wunused-value]
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                             ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:61: warning: left operand of comma operator has no effect [-Wunused-value]
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:72: warning: right operand of comma operator has no effect [-Wunused-value]
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                        ^~~~
+/home/gerasmark/daphne/build/src/runtime/local/kernels/kernels.cpp:12898:78: warning: right operand of comma operator has no effect [-Wunused-value]
+12898 |             map<DenseMatrix<uint8_t>, DenseMatrix<uint8_t>>(*res, arg, func, ctx);
+      |                                                                              ^~~
+ninja: build stopped: subcommand failed.

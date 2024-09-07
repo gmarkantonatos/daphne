@@ -56,7 +56,7 @@ int parseFile(std::string fileName, bool storeValues, bool showProperties, bool 
 			if (ch){
 				unsigned long long dataCount = ch->getDataCount(), stringCount = ch->getStringCount();
 				unsigned long long dataSize = (dataCount > 0) ? dataCount : stringCount;
-				string unit = ch->getUnit();
+				std::string unit = ch->getUnit();
 				if (unit.empty())
 					printf("%d) Channel %s has %lld values:\n", j + 1, ch->getName().c_str(), dataSize);
 				else
@@ -87,10 +87,10 @@ int parseFile(std::string fileName, bool storeValues, bool showProperties, bool 
 				} else if (stringCount){
 					std::vector<std::string> strings = ch->getStringVector();
 					if (!strings.empty()){
-						string str1 = strings.front();
+						std::string str1 = strings.front();
 						if (str1.empty())
 							str1 = "empty string";
-						string str2 = strings.back();
+						std::string str2 = strings.back();
 						if (str2.empty())
 							str2 = "empty string";
 						printf("\t%s ... %s\n", str1.c_str(), str2.c_str());
@@ -128,12 +128,12 @@ void parseDir(std::string dirName, bool storeValues = false, bool showProperties
 	struct dirent *dp = 0;
 	unsigned int cnt = 0, errCnt = 0;
 	while ((dp = readdir(dir)) != NULL){
-		string name = string(dp->d_name);
+		std::string name = std::string(dp->d_name);
 		const char *dot = strrchr(name.c_str(), '.');
 		if (dot && !strcmp(dot, ".tdms")){
 			cnt++;
 
-			string path = dirName;
+			std::string path = dirName;
 			if (path.at(path.length() - 1) == '/')
 				path.append(name);
 			else

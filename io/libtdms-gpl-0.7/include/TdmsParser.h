@@ -5,7 +5,7 @@
 #include <vector>
 #include <map>
 
-using namespace std;
+// using namespace std;
 
 class TdmsGroup;
 class TdmsChannel;
@@ -14,8 +14,8 @@ class TdmsSegment;
 class TdmsParser
 {
 public:
-	typedef vector<TdmsGroup*> TdmsGroupSet;
-	typedef vector<TdmsSegment*> TdmsSegmentSet;
+	typedef std::vector<TdmsGroup*> TdmsGroupSet;
+	typedef std::vector<TdmsSegment*> TdmsSegmentSet;
 
 	TdmsParser(const std::string &, bool = true);
 	TdmsParser(char *, bool = true);
@@ -44,7 +44,7 @@ public:
 
 	void setProperties(std::map<std::string, std::string> props){d_properties = props;}
 	std::map<std::string, std::string> getProperties(){return d_properties;}
-	string propertiesToString() const;
+	std::string propertiesToString() const;
 
 	//! Initializes the reading of the given file
 	void init();

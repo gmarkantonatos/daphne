@@ -2,3 +2,5 @@ a = readFrame("test_frame.csv");
 b = readMatrix("test_matrix.csv");
 print(a);
 print(b);
+c = readMatrix("test.tdms");
+print(c);
