@@ -1,6 +1,6 @@
-a = readFrame("test_frame.csv");
-b = readMatrix("test_matrix.csv");
-print(a);
-print(b);
+#a = readFrame("test_frame.csv");
+#print(a);
+#b = readMatrix("exampleMeasurements.tdms");
+#print(b);
 c = readMatrix("test.tdms");
 print(c);

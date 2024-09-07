@@ -1,1 +1,14 @@
-
+../bin/daphne(+0x1539702)[0x558ea0dc0702]
+/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7f0457145520]
+/home/gerasmark/daphne/bin/../lib/libAllKernels.so(_read__DenseMatrix_double__char+0xa05)[0x7f04436fc265]
+[0x7f045788f0e2]
+[0x7f045788f1cd]
+[0x7f045788f1ed]
+../bin/daphne(+0x1e558bb)[0x558ea16dc8bb]
+../bin/daphne(+0x1569d43)[0x558ea0df0d43]
+../bin/daphne(+0x156ea5f)[0x558ea0df5a5f]
+/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7f045712cd90]
+/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7f045712ce40]
+../bin/daphne(+0x15381a5)[0x558ea0dbf1a5]
+[error]: Got an abort signal from the execution engine. Most likely an exception in a shared library. Check logs!
+[error]: Execution error: Returning from signal 11

@@ -8,12 +8,12 @@ print(tdms_file.groups())
 channels = group[0]["channel name"]
 print(group[0].channels())
 first_channel_value = channels[1]
-print(first_channel_value)
+print(len(channels))
+for i in range(0, len(channels)):
+    print(channels[i])
 # print(channels[:])
 
 # group = tdms_file['group name']
 # channel = group['channel name']
 # channel_data = channel[:]
 # channel_properties = channel.properties
-
-tdms_file["groups"]["channels"]["channels_data"]
