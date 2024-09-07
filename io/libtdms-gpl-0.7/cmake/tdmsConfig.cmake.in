@@ -6,4 +6,4 @@ include(CMakeFindDependencyMacro)
 include("${CMAKE_CURRENT_LIST_DIR}/tdmsTargets.cmake")
 
 # Define a target for use by clients
-add_library(tdms::tdms ALIAS tdms)
+#add_library(tdms::tdms ALIAS tdms)

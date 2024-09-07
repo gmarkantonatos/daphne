@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 # Define the project name and version
 project(tdms VERSION 1.0.0)
 
@@ -11,6 +13,8 @@ target_include_directories(tdms PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
 )
+
+target_compile_options(tdms PUBLIC -fPIC)
 
 # Install the tdms library and headers
 install(TARGETS tdms EXPORT tdmsTargets

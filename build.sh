@@ -1017,7 +1017,7 @@ fi
     tdmsBuildDir="$buildPrefix/$tdmsDirName"
     tdmsInstallDir="$installPrefix/tdms"
     dep_tdms=("tdms_v${tdmsVersion}" "v1")
-
+    
     if ! is_dependency_installed "${dep_tdms[@]}"; then
         daphne_msg "Building and installing tdms version ${tdmsVersion}"
         mkdir -p "$tdmsBuildDir"

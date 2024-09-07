@@ -121,28 +121,29 @@ template <typename VT> struct ReadTdms<DenseMatrix<VT>> {
           res = DataObjectFactory::create<DenseMatrix<VT>>(numRows, channelsCount, false);
         }
 
+        VT *valuesRes = res->getValues();  // Get the raw pointer to the matrix values
+        size_t cell = 0;
+    
         // Step 4: Populate the DenseMatrix with the channel data
         for (unsigned int j = 0; j < channelsCount; j++) {
           TdmsChannel *ch = group->getChannel(j);
           if (!ch) {
             throw std::runtime_error("Error retrieving channel " + std::to_string(j));
           }
-
+    
           unsigned long long dataCount = ch->getDataCount();
           if (dataCount != numRows) {
             throw std::runtime_error("Mismatch in data size for channel " + std::to_string(j));
           }
-
+    
           // Get the data vector from the channel
           std::vector<double> data = ch->getDataVector();
-
+    
           // Copy data to the DenseMatrix (each column corresponds to a channel)
           for (size_t r = 0; r < numRows; r++) {
-            (*res)(r, j) = data[r];  // Set row r, column j
+            valuesRes[cell++] = static_cast<VT>(data[r]);  // Store data in the matrix
           }
         }
-
-        // parser.freeMemory();
 
   }
 };
