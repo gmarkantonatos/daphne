@@ -139,9 +139,11 @@ template <typename VT> struct ReadTdms<DenseMatrix<VT>> {
           // Get the data vector from the channel
           std::vector<double> data = ch->getDataVector();
 
-          // Copy data to the DenseMatrix (each column corresponds to a channel)
+          // Step 5: Flatten the data into the DenseMatrix
+          // Instead of addressing matrix directly, calculate the proper offset based on rows and columns
           for (size_t r = 0; r < numRows; r++) {
-            valuesRes[cell++] = static_cast<VT>(data[r]);  // Store data in the matrix
+            size_t index = r * channelsCount + j; // Calculate the correct position in the 1D array
+            valuesRes[index] = static_cast<VT>(data[r]);
           }
         }
 
