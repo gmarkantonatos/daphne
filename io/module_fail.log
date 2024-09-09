@@ -1,13 +1,10 @@
 module {
   func.func @main() {
-    %0 = "daphne.constant"() {value = "test.tdms"} : () -> !daphne.String
-    %1 = "daphne.constant"() {value = false} : () -> i1
-    %2 = "daphne.constant"() {value = true} : () -> i1
-    %3 = "daphne.constant"() {value = "exampleMeasurements"} : () -> !daphne.String
-    %4 = "daphne.read"(%3) : (!daphne.String) -> !daphne.Matrix<?x?x!daphne.Unknown>
-    "daphne.print"(%4, %2, %1) : (!daphne.Matrix<?x?x!daphne.Unknown>, i1, i1) -> ()
-    %5 = "daphne.read"(%0) : (!daphne.String) -> !daphne.Matrix<?x?x!daphne.Unknown>
-    "daphne.print"(%5, %2, %1) : (!daphne.Matrix<?x?x!daphne.Unknown>, i1, i1) -> ()
+    %0 = "daphne.constant"() {value = false} : () -> i1
+    %1 = "daphne.constant"() {value = true} : () -> i1
+    %2 = "daphne.constant"() {value = "./tdmsTests/2groups.tdms"} : () -> !daphne.String
+    %3 = "daphne.read"(%2) : (!daphne.String) -> !daphne.Matrix<?x?x!daphne.Unknown>
+    "daphne.print"(%3, %1, %0) : (!daphne.Matrix<?x?x!daphne.Unknown>, i1, i1) -> ()
     "daphne.return"() : () -> ()
   }
 }
