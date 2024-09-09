@@ -25,8 +25,9 @@
 #include <runtime/local/io/FileMetaData.h>
 #include <runtime/local/io/WriteCsv.h>
 #include <runtime/local/io/WriteDaphne.h>
+#include <runtime/local/io/WriteTdms.h>
 #include <parser/metadata/MetaDataParser.h>
-#include <TDMS.h>
+
 
 
 // ****************************************************************************
@@ -71,7 +72,12 @@ struct Write<DenseMatrix<VT>> {
         FileMetaData metaData(arg->getNumRows(), arg->getNumCols(), true, ValueTypeUtils::codeFor<VT>);
         MetaDataParser::writeMetaData(filename, metaData);
 		writeDaphne(arg, filename);
-    } else {
+    } 
+    else if (ext == "tdms") {
+        FileMetaData metaData(arg->getNumRows(), arg->getNumCols(), true, ValueTypeUtils::codeFor<VT>);
+        MetaDataParser::writeMetaData(filename, metaData);
+        writeTdms(arg, filename);
+    }else {
       throw std::runtime_error( "[Write.h] - unsupported file extension in write kernel.");
     }
     }
