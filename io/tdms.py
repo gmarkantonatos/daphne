@@ -1,11 +1,11 @@
 from nptdms import TdmsFile
 
-tdms_file = TdmsFile.read("./Test.tdms")
+tdms_file = TdmsFile.read("tdmsTests/write1channel.tdms")
 group = tdms_file.groups()
 print(tdms_file.groups())
 
 #channels = group[0]["VaGroundV"]
-channels = group[0]["Channel 1 name"]
+channels = group[0]["Channel_1"]
 print(group[0].channels())
 first_channel_value = channels[1]
 print(len(channels))
