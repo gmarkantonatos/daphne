@@ -2,7 +2,7 @@ module {
   func.func @main() {
     %0 = "daphne.constant"() {value = false} : () -> i1
     %1 = "daphne.constant"() {value = true} : () -> i1
-    %2 = "daphne.constant"() {value = "./tdmsTests/2groups.tdms"} : () -> !daphne.String
+    %2 = "daphne.constant"() {value = "./tdmsTests/uint32.tdms"} : () -> !daphne.String
     %3 = "daphne.read"(%2) : (!daphne.String) -> !daphne.Matrix<?x?x!daphne.Unknown>
     "daphne.print"(%3, %1, %0) : (!daphne.Matrix<?x?x!daphne.Unknown>, i1, i1) -> ()
     "daphne.return"() : () -> ()

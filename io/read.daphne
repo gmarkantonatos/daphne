@@ -2,5 +2,5 @@
 #print(a);
 #b = readMatrix("exampleMeasurements.tdms");
 #print(b);
-c = readMatrix("./tdmsTests/10groups10channels.tdms");
+c = readMatrix("./tdmsTests/uint8.tdms");
 print(c);

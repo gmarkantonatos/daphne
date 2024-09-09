@@ -1,0 +1,10 @@
+@PACKAGE_INIT@
+
+set(TDMS_WRITER_INCLUDE_DIRS "@PACKAGE_INSTALL_PREFIX@/include")
+set(TDMS_WRITER_LIBRARIES tdms_writer)
+
+# Provide the package configuration to CMake
+include(CMakeFindDependencyMacro)
+
+# Export the targets
+include("${CMAKE_CURRENT_LIST_DIR}/tdmsWriterTargets.cmake")
