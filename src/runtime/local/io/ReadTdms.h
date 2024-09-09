@@ -97,54 +97,70 @@ template <typename VT> struct ReadTdms<DenseMatrix<VT>> {
         // Read the TDMS file data
         parser.read(false);
 
-        // Step 2: Get the number of groups and channels
+        // Step 2: Get the number of groups
         unsigned int groupCount = parser.getGroupCount();
         if (groupCount == 0) {
           throw std::runtime_error("No groups found in TDMS file.");
         }
 
-        // Assume we are working with the first group
-        TdmsGroup *group = parser.getGroup(0);
-        if (!group) {
-          throw std::runtime_error("No group found in TDMS file.");
+        // Calculate the total number of channels across all groups
+        unsigned int totalChannels = 0;
+        for (unsigned int i = 0; i < groupCount; i++) {
+            TdmsGroup *group = parser.getGroup(i);
+            if (group) {
+                totalChannels += group->getGroupSize();
+            }
         }
 
-        // Get the number of channels in the group
-        unsigned int channelsCount = group->getGroupSize();
-        if (channelsCount == 0) {
-          throw std::runtime_error("No channels found in the TDMS file group.");
+        // Step 3: Allocate the DenseMatrix if it's not already allocated
+        if (res == nullptr) {
+          res = DataObjectFactory::create<DenseMatrix<VT>>(numRows, numCols, false);
         }
 
-        // Step 3: Allocate the DenseMatrix
-        // numRows is the number of data points in each channel, numCols is the number of channels
-        // if (res == nullptr) {
-        //   res = DataObjectFactory::create<DenseMatrix<VT>>(numRows, channelsCount, false);
-        // }
+        // Step 4: Populate the DenseMatrix with the channel data from all groups
+        VT* valuesRes = res->getValues();  // Get the raw pointer to the matrix values
+        size_t currentChannel = 0; // Track the current column in the matrix
 
-        VT *valuesRes = res->getValues();  // Get the raw pointer to the matrix values
-        size_t cell = 0;
-
-        // Step 4: Populate the DenseMatrix with the channel data
-        for (unsigned int j = 0; j < channelsCount; j++) {
-          TdmsChannel *ch = group->getChannel(j);
-          if (!ch) {
-            throw std::runtime_error("Error retrieving channel " + std::to_string(j));
+        for (unsigned int i = 0; i < groupCount; i++) {
+          TdmsGroup *group = parser.getGroup(i);
+          if (!group) {
+            throw std::runtime_error("Error retrieving group " + std::to_string(i));
           }
 
-          unsigned long long dataCount = ch->getDataCount();
-          if (dataCount != numRows) {
-            throw std::runtime_error("Mismatch in data size for channel " + std::to_string(j));
+          // Get the number of channels in this group
+          unsigned int channelsCount = group->getGroupSize();
+          if (channelsCount == 0) {
+            continue; // Skip empty groups
           }
 
-          // Get the data vector from the channel
-          std::vector<double> data = ch->getDataVector();
+          // Step 5: Iterate over each channel in the group
+          for (unsigned int j = 0; j < channelsCount; j++) {
+            TdmsChannel *ch = group->getChannel(j);
+            if (!ch) {
+              throw std::runtime_error("Error retrieving channel " + std::to_string(j) + " in group " + std::to_string(i));
+            }
 
-          // Step 5: Flatten the data into the DenseMatrix
-          // Instead of addressing matrix directly, calculate the proper offset based on rows and columns
-          for (size_t r = 0; r < numRows; r++) {
-            size_t index = r * channelsCount + j; // Calculate the correct position in the 1D array
-            valuesRes[index] = static_cast<VT>(data[r]);
+            unsigned long long dataCount = ch->getDataCount();
+            if (dataCount != numRows) {
+              throw std::runtime_error("Mismatch in data size for channel " + std::to_string(j) + " in group " + std::to_string(i));
+            }
+
+            // Get the data vector from the channel
+            std::vector<double> data = ch->getDataVector();
+
+            // Step 6: Copy the channel data into the matrix
+            for (size_t r = 0; r < numRows; r++) {
+              size_t index = r * totalChannels + currentChannel; // Calculate the correct position
+              valuesRes[index] = static_cast<VT>(data[r]);
+            }
+
+            // Move to the next channel (next column in the matrix)
+            currentChannel++;
           }
+        }
+
+        if (currentChannel != totalChannels) {
+          throw std::runtime_error("Error: Number of populated channels doesn't match total channel count.");
         }
 
   }

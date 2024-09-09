@@ -1,6 +1,6 @@
 from nptdms import TdmsFile
 
-tdms_file = TdmsFile.read("./tdmsTests/2channels.tdms")
+tdms_file = TdmsFile.read("./tdmsTests/10groups10channels.tdms")
 group = tdms_file.groups()
 print(tdms_file.groups())
 
