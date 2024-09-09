@@ -1009,7 +1009,7 @@ if [ $WITH_DEPS -gt 0 ]; then
 fi
 
     #------------------------------------------------------------------------------
-    # 8.10 Build tdms 
+    # 8.10 Build tdms-reader
     #------------------------------------------------------------------------------
     tdmsVersion="1.0.0"  
     tdmsDirName="tdms-$tdmsVersion"
@@ -1028,6 +1028,29 @@ fi
     else
         daphne_msg "No need to build tdms again."
     fi
+
+    #------------------------------------------------------------------------------
+    # 8.11 Build tdms-writer
+    #------------------------------------------------------------------------------
+
+    tdmsWriterVersion="1.0.0"
+    tdmsWriterDirName="tdms_writer-$tdmsWriterVersion"
+    tdmsWriterSourceDir="/home/gerasmark/daphne/io/tdmswriter"
+    tdmsWriterBuildDir="$buildPrefix/$tdmsWriterDirName"
+    tdmsWriterInstallDir="$installPrefix/tdms_writer"
+    dep_tdmsWriter=("tdms_writer_v${tdmsWriterVersion}" "v1")
+
+    if ! is_dependency_installed "${dep_tdmsWriter[@]}"; then
+        daphne_msg "Building and installing tdms_writer version ${tdmsWriterVersion}"
+        mkdir -p "$tdmsWriterBuildDir"
+        cmake -G Ninja -S "$tdmsWriterSourceDir" -B "$tdmsWriterBuildDir" \
+            -DCMAKE_INSTALL_PREFIX="$tdmsWriterInstallDir"
+        cmake --build "$tdmsWriterBuildDir" --target install/strip
+        dependency_install_success "${dep_tdmsWriter[@]}"
+    else
+        daphne_msg "No need to build tdms_writer again."
+    fi
+
 
 
 

@@ -26,6 +26,7 @@
 #include <runtime/local/io/WriteCsv.h>
 #include <runtime/local/io/WriteDaphne.h>
 #include <parser/metadata/MetaDataParser.h>
+#include <TDMS.h>
 
 
 // ****************************************************************************

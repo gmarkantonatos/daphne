@@ -163,6 +163,7 @@ find_package (Eigen3 REQUIRED)
 find_package(tdms REQUIRED)
 
 
+find_package(tdms_writer REQUIRED)
 
 
 
