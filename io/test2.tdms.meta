@@ -1,0 +1,20 @@
+{
+    "numCols":3,
+    "numRows":5,
+    "schema" : [ 
+        { 
+            "label" :"a", 
+            "valueType": "ui8"
+        } ,
+        {
+            "label" : "b",
+            "valueType" : "f32"
+        },
+        {
+            "label" : "c",
+            "valueType": "ui8"
+        }
+
+        
+    ]
+}

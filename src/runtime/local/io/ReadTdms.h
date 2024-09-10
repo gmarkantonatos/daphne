@@ -188,9 +188,171 @@ template <typename VT> struct ReadTdms<CSRMatrix<VT>> {
 template <> struct ReadTdms<Frame> {
   static void apply(Frame *&res, const char *filename, size_t numRows,
                     size_t numCols, char delim, ValueTypeCode *schema) {
-    throw std::runtime_error("Error opening TDMS file: " + std::string(filename));
-    // struct File *file = openFile(filename);
-    // readCsvFile(res, file, numRows, numCols, delim, schema);
-    // closeFile(file);
+        //throw std::runtime_error("Error opening TDMS file: " + std::string(filename));
+        TdmsParser parser(filename, true); // true indicates storing the values in memory
+        if (parser.fileOpeningError()) {
+          throw std::runtime_error("Error opening TDMS file: " + std::string(filename));
+        }
+
+        // Read the TDMS file data
+        parser.read(false);
+
+        // Step 2: Get the number of groups and channels
+        unsigned int groupCount = parser.getGroupCount();
+        if (groupCount == 0) {
+          throw std::runtime_error("No groups found in TDMS file.");
+        }
+        if (res == nullptr) {
+          res = DataObjectFactory::create<Frame>(numRows, numCols, schema, nullptr, false);
+        }
+        uint8_t ** rawCols = new uint8_t * [numCols];
+        ValueTypeCode * colTypes = new ValueTypeCode[numCols];
+        for(size_t i = 0; i < numCols; i++) {
+            rawCols[i] = reinterpret_cast<uint8_t *>(res->getColumnRaw(i));
+            colTypes[i] = res->getColumnType(i);
+        }
+        size_t row ,col,totalcol=0;
+        for(unsigned int  i =0 ;i<groupCount;i++){
+          TdmsGroup *group = parser.getGroup(i);
+        if (!group) {
+          throw std::runtime_error("No group found in TDMS file.");
+        }
+        unsigned int channelsCount = group->getGroupSize();
+        if (channelsCount == 0) {
+          throw std::runtime_error("No channels found in the TDMS file group.");
+        }
+        //totalcol+=channelsCount;
+
+        for (col=0 ; col < channelsCount; col++) {
+          TdmsChannel *ch = group->getChannel(col);
+          if (!ch) {
+            throw std::runtime_error("Error retrieving channel " + std::to_string(col));
+          }
+    
+          unsigned long long dataCount = ch->getDataCount();
+          if (dataCount != numRows) {
+            throw std::runtime_error("Mismatch in data size for channel " + std::to_string(col));
+          }
+    
+          // Get the data vector from the channel
+          //std::vector<double> data = ch->getDataVector();
+          //size_t pos = 0;
+          
+          switch (colTypes[totalcol + col]) {
+          case ValueTypeCode::SI8:{
+            // int8_t val_si8;
+            // convertCstr(file->line + pos, &val_si8);
+            //std::vector<double> data = ch->getDataVector();
+            //for(row =0; row<numRows; row++){
+            //  reinterpret_cast<int8_t *>(rawCols[totalcol + col])[row] = data[row];
+            //}
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<int8_t *>(rawCols[totalcol + col])[row] = (int8_t)data[row];
+            }
+            
+            break;
+          }
+          case ValueTypeCode::SI32:{
+            //int32_t val_si32;
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<int32_t *>(rawCols[totalcol + col])[row] = (int32_t)data[row];
+            }
+            //convertCstr(file->line + pos, &val_si32);
+            //reinterpret_cast<int32_t *>(rawCols[col])[row] = val_si32;
+            break;
+          }
+            
+          case ValueTypeCode::SI64:{
+            int64_t val_si64;
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<int64_t *>(rawCols[totalcol + col])[row] = (int64_t)data[row];
+            }
+            //convertCstr(file->line + pos, &val_si64);
+            //reinterpret_cast<int64_t *>(rawCols[col])[row] = val_si64;
+            break;
+          }
+            
+          case ValueTypeCode::UI8:{
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<u_int8_t *>(rawCols[totalcol + col])[row] = (u_int8_t)data[row];
+            }
+            break;
+          }
+            //uint8_t val_ui8;
+            // convertCstr(file->line + pos, &val_ui8);
+            // reinterpret_cast<uint8_t *>(rawCols[col])[row] = val_ui8;
+            
+          case ValueTypeCode::UI32:{
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<u_int32_t *>(rawCols[totalcol + col])[row] = (u_int32_t)data[row];
+            }
+            break;
+          }
+            //uint32_t val_ui32;
+            // convertCstr(file->line + pos, &val_ui32);
+            // reinterpret_cast<uint32_t *>(rawCols[col])[row] = val_ui32;
+            
+          case ValueTypeCode::UI64:{
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<u_int64_t *>(rawCols[totalcol + col])[row] = (u_int64_t)data[row];
+            }
+            break;
+          }
+          
+            //uint64_t val_ui64;
+            // convertCstr(file->line + pos, &val_ui64);
+            // reinterpret_cast<uint64_t *>(rawCols[col])[row] = val_ui64;
+            
+          case ValueTypeCode::F32:{
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<float *>(rawCols[totalcol + col])[row] = (float)data[row];
+            }
+            break;
+          }
+            //float val_f32;
+            // convertCstr(file->line + pos, &val_f32);
+            // reinterpret_cast<float *>(rawCols[col])[row] = val_f32;
+            break;
+          case ValueTypeCode::F64:{
+            std::vector<double> data = ch->getDataVector();
+            for(row =0; row<numRows; row++){
+              reinterpret_cast<double *>(rawCols[totalcol + col])[row] = data[row];
+            }
+            break;
+          }
+            //double val_f64;
+            //convertCstr(file->line + pos, &val_f64);
+            //reinterpret_cast<double *>(rawCols[col])[row] = val_f64;
+            
+          // default:
+          //   throw std::runtime_error("ReadCsvFile::apply: unknown value type code");
+          }
+          //while(file->line[pos] != delim) pos++;
+          //pos++; // skip delimiter
   }
+  totalcol+=channelsCount;
+
+        }
+
+        // Assume we are working with the first group
+        
+
+        // Get the number of channels in the group
+        
+
+
+        
+
+        
+
+        
+        
+                    }
 };
