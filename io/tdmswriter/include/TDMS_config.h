@@ -27,7 +27,7 @@ extern "C" {
  * @brief  Determines max Channels of Group and max Groups of TDMS file
  */
 #define TDMS_CONFIG_MAX_GROUP_OF_FILE       4
-#define TDMS_CONFIG_MAX_CHANNEL_OF_GROUP    8
+#define TDMS_CONFIG_MAX_CHANNEL_OF_GROUP    10
 
 /**
  * @brief  Determines system Endianness

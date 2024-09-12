@@ -112,4 +112,227 @@ struct WriteTdms<DenseMatrix<VT>> {
     }
 };
 
+template <> struct WriteTdms<Frame> {
+    static void apply(const Frame *arg, const char *filename) {
+        // Step 1: Open the TDMS file for writing
+        FILE *MyFile = fopen(filename, "wb");
+        if (!MyFile) {
+            throw std::runtime_error("WriteTdms: File open failed!");
+        }
+
+        TDMS_File_t FileTDMS;
+        if (TDMS_InitFile(&FileTDMS) != TDMS_OK) {
+            fclose(MyFile);
+            throw std::runtime_error("WriteTdms: TDMS Init failed!");
+        }
+
+        // Step 2: Add a group to the TDMS file
+        TDMS_Group_t Group;
+        char groupName[] = "DaphneGroup";
+        if (TDMS_AddGroupToFile(&Group, &FileTDMS, groupName) != TDMS_OK) {
+            fclose(MyFile);
+            throw std::runtime_error("WriteTdms: Add group failed!");
+        }
+
+        size_t numRows = arg->getNumRows();
+        size_t numCols = arg->getNumCols();
+
+        size_t i ;
+        TDMS_Result_t j ;
+
+        for ( i=0; i<numCols ; i++){
+            std::string channelNameStr = "Channel_" + std::to_string(i + 1);
+            char* channelName = new char[channelNameStr.length() + 1];  
+            std::strcpy(channelName, channelNameStr.c_str());  
+            TDMS_Channel_t Channel;
+            const void* array = arg->getColumnRaw(i);
+            ValueTypeCode vtc = arg->getColumnType(i);
+            switch(vtc){
+                case ValueTypeCode::SI8:{
+                    j  = TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_I8);
+                    if ( j != TDMS_OK) {
+                        
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out si8!");
+                        throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(int8_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (int8_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::SI32:{
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_I32);
+                    if (j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out si32!");
+                        throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(int32_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (int32_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::SI64:{
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_I64);
+                    if (j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out si64!");
+                        throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(int64_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (int64_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::UI8:{
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_U8);
+                    if (j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out ui8!");
+                        else throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(u_int8_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (u_int8_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::UI32:{
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_U32);
+                    if ( j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out ui32!");
+                        throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(u_int32_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (u_int32_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::UI64:{
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_U64);
+                    if (j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out ui64!");
+                        throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(u_int64_t*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (u_int64_t*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::F32:{
+                    TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_SingleFloat);
+                    if ( j != TDMS_OK) {
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out float!");
+                        else throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(float*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (float*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                }
+                case ValueTypeCode::F64:{
+    
+                    j=TDMS_AddChannelToGroup(&Channel, &Group, channelName, TDMS_DataType_DoubleFloat);
+                    if (j != TDMS_OK) {                        
+                        delete[] channelName;
+                        fclose(MyFile);
+                        if(j == TDMS_WRONG_ARG) throw std::runtime_error("WriteTdms: Add channel failed because of wrong arguement!");
+                        else if( j ==TDMS_OUT_OF_CAP) throw std::runtime_error("WriteTdms: Add channel failed because of maxing out double!");
+                        else throw std::runtime_error("WriteTdms: Add channel failed!");
+                    }
+                    uint32_t size = 0;
+                    TDMS_SetChannelDataValues(&Channel, NULL, &size,(double*)array, numRows);
+                    uint8_t *buffer = (uint8_t *)calloc(size + 1, sizeof(uint8_t));
+                    if (!buffer) {
+                        fclose(MyFile);
+                        throw std::runtime_error("WriteTdms: Memory allocation failed!");
+                    }
+
+                    TDMS_SetChannelDataValues(&Channel, buffer, &size, (double*)array, numRows);
+                    fwrite(buffer, 1, size, MyFile);
+                    free(buffer);
+                    break;
+                    }
+                    
+                }
+            }
+            fclose(MyFile);
+        }
+        
+
+    };
+
 #endif // SRC_RUNTIME_LOCAL_IO_WRITETDMS_H

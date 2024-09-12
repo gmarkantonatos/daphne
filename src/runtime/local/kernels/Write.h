@@ -90,17 +90,34 @@ struct Write<DenseMatrix<VT>> {
 template<>
 struct Write<Frame> {
     static void apply(const Frame * arg, const char * filename, DCTX(ctx)) {
-        File * file = openFileForWrite(filename);
-        std::vector<ValueTypeCode> vtcs;
-        std::vector<std::string> labels;
-        for(size_t i = 0; i < arg->getNumCols(); i++) {
-            vtcs.push_back(arg->getSchema()[i]);
-            labels.push_back(arg->getLabels()[i]);
+        std::string fn(filename);
+	    auto pos = fn.find_last_of('.');
+	    std::string ext(fn.substr(pos+1)) ;   
+        if(ext=="csv"){
+            File * file = openFileForWrite(filename);
+            std::vector<ValueTypeCode> vtcs;
+            std::vector<std::string> labels;
+            for(size_t i = 0; i < arg->getNumCols(); i++) {
+                vtcs.push_back(arg->getSchema()[i]);
+                labels.push_back(arg->getLabels()[i]);
+            }
+            FileMetaData metaData(arg->getNumRows(), arg->getNumCols(), false, vtcs, labels);
+            MetaDataParser::writeMetaData(filename, metaData);
+            writeCsv(arg, file);
+            closeFile(file);
         }
-        FileMetaData metaData(arg->getNumRows(), arg->getNumCols(), false, vtcs, labels);
-        MetaDataParser::writeMetaData(filename, metaData);
-        writeCsv(arg, file);
-        closeFile(file);
+        if(ext=="tdms"){
+            std::vector<ValueTypeCode> vtcs;
+            std::vector<std::string> labels;
+            for(size_t i = 0; i < arg->getNumCols(); i++) {
+                vtcs.push_back(arg->getSchema()[i]);
+                labels.push_back(arg->getLabels()[i]);
+            }
+            FileMetaData metaData(arg->getNumRows(), arg->getNumCols(), false, vtcs, labels);
+            MetaDataParser::writeMetaData(filename, metaData);
+            writeTdms(arg, filename);
+        }
+            
     }
 };
 
