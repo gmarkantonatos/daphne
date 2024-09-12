@@ -1,0 +1,3 @@
+a=readFrame("10channelsFrameMixedWritten.tdms");
+print("\n-----reading written Frame Mixed -----\n");
+print(a);

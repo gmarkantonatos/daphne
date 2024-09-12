@@ -1,0 +1,11 @@
+a=readFrame("10channelsFrameMixed.tdms");
+print("\n");
+print("-----testing 10channelsFrameMixed.tdms -----");
+print("\n");
+print(a);
+print("\n");
+b=readFrame("10channelsFrameSingle.tdms");
+print("\n");
+print("-----testing 10channelsFrameSingle.tdms -----");
+print("\n");
+print(b);
