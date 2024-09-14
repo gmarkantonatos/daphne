@@ -162,7 +162,7 @@ template<>
 struct Read<Frame> {
     static void apply(Frame *& res, const char * filename, DCTX(ctx)) {
         FileMetaData fmd = MetaDataParser::readMetaData(filename);
-        
+        int extv = extValue(filename);
         ValueTypeCode * schema;
         if(fmd.isSingleValueType) {
             schema = new ValueTypeCode[fmd.numCols];
@@ -183,7 +183,15 @@ struct Read<Frame> {
                     fmd.numRows, fmd.numCols, schema, labels, false
             );
         
-        readCsv(res, filename, fmd.numRows, fmd.numCols, ',', schema);
+		switch(extv) {
+		case 0: 
+			readCsv(res, filename, fmd.numRows, fmd.numCols, ',', schema);
+			break;	
+		case 4:
+			readTdms(res, filename, fmd.numRows, fmd.numCols, ',', schema);
+			break;
+		}
+        
         
         if(fmd.isSingleValueType)
             delete[] schema;
