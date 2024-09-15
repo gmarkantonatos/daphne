@@ -6,5 +6,5 @@ print("Loading Tdms file:");
 #writeFrame(one, "test_frame.csv");
 #writeMatrix(one, "test_matrix.csv");
 writeMatrix(one,"tdmsTests/1channel.tdms");
-c = readMatrix("./tdmsTests/1channel.tdms");
+c = readFrame("./tdmsTests/1channel.tdms");
 print(c);

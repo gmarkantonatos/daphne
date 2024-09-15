@@ -1,0 +1,4 @@
+// Read a frame from the file $inPath and print it.
+
+X = readFrame($inPath);
+print(X);

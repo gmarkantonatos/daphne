@@ -38,3 +38,17 @@ TEST_CASE("writeMatrixCSV_View", TAG_IO) {
     checkDaphneStatusCode(StatusCode::SUCCESS, dirPath + "writeMatrix_view.daphne", "--args", std::string("outPath=\"" + csvPath + "\"").c_str());
     compareDaphneToRef(dirPath + "matrix_view_ref.csv", dirPath + "readMatrix.daphne", "--args", std::string("inPath=\"" + csvPath + "\"").c_str());
 }
+
+TEST_CASE("writeMatrixTdms", TAG_IO) {
+    std::string TdmsPath = dirPath + "matrix_tdms.tdms";
+    std::filesystem::remove(TdmsPath); // remove old file if it still exists
+    checkDaphneStatusCode(StatusCode::SUCCESS, dirPath + "writeMatrix_tdms.daphne", "--args", std::string("outPath=\"" + TdmsPath + "\"").c_str());
+    compareDaphneToRef(dirPath + "matrix_tdms_ref.txt", dirPath + "readMatrix.daphne", "--args", std::string("inPath=\"" + TdmsPath + "\"").c_str());
+}
+
+TEST_CASE("writeFrameTdms", TAG_IO) {
+    std::string TdmsPath = dirPath + "frame_tdms.tdms";
+    std::filesystem::remove(TdmsPath); // remove old file if it still exists
+    checkDaphneStatusCode(StatusCode::SUCCESS, dirPath + "writeFrame_tdms.daphne", "--args", std::string("outPath=\"" + TdmsPath + "\"").c_str());
+    compareDaphneToRef(dirPath + "frame_tdms_ref.txt", dirPath + "readFrame.daphne", "--args", std::string("inPath=\"" + TdmsPath + "\"").c_str());
+}
