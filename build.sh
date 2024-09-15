@@ -1013,7 +1013,7 @@ fi
     #------------------------------------------------------------------------------
     tdmsVersion="1.0.0"  
     tdmsDirName="tdms-$tdmsVersion"
-    tdmsSourceDir="/home/gerasmark/daphne/io/libtdms-gpl-0.7"  
+    tdmsSourceDir="${projectRoot}/io/libtdms-gpl-0.7"  
     tdmsBuildDir="$buildPrefix/$tdmsDirName"
     tdmsInstallDir="$installPrefix/tdms"
     dep_tdms=("tdms_v${tdmsVersion}" "v1")
@@ -1035,7 +1035,7 @@ fi
 
     tdmsWriterVersion="1.0.0"
     tdmsWriterDirName="tdms_writer-$tdmsWriterVersion"
-    tdmsWriterSourceDir="/home/gerasmark/daphne/io/tdmswriter"
+    tdmsWriterSourceDir="${projectRoot}/io/tdmswriter"
     tdmsWriterBuildDir="$buildPrefix/$tdmsWriterDirName"
     tdmsWriterInstallDir="$installPrefix/tdms_writer"
     dep_tdmsWriter=("tdms_writer_v${tdmsWriterVersion}" "v1")
