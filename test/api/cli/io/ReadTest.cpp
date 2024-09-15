@@ -55,3 +55,13 @@ TEST_CASE("readMatrixFromCSV", TAG_IO)
 // {
 //     compareDaphneToRef(dirPath + "testReadMatrix.txt", dirPath + "testReadMatrix_DynamicPath.daphne");
 // }
+
+TEST_CASE("readMatrixFromTdms", TAG_IO)
+{
+    compareDaphneToRef(dirPath + "testReadMatrixTdms.txt", dirPath + "ReadTdmsMatrix.daphne");
+}
+
+TEST_CASE("readFrameFromTdms", TAG_IO)
+{
+    compareDaphneToRef(dirPath + "testReadFrameTdms.txt", dirPath + "ReadTdmsFrame.daphne");
+}

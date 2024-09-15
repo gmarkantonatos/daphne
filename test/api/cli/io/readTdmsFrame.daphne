@@ -1,0 +1,2 @@
+a = readFrame("test/api/cli/io/readTdmsFrame1.tdms");
+print(a);

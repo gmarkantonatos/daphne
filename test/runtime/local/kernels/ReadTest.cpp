@@ -74,7 +74,33 @@ TEMPLATE_PRODUCT_TEST_CASE("Read MM", TAG_KERNELS, (DenseMatrix), (uint32_t)) {
 
   DataObjectFactory::destroy(m);
 }
+TEMPLATE_PRODUCT_TEST_CASE("ReadTdms-Read",TAG_KERNELS, (DenseMatrix), (double)){
+  using DT = TestType;
+  DT *m = nullptr;
 
+  size_t numRows = 10;
+  size_t numCols = 1;
+
+  char filename[] = "./test/runtime/local/io/ReadTdms.tdms";
+
+  read(m, filename, nullptr);
+
+  REQUIRE(m->getNumRows() == numRows);
+  REQUIRE(m->getNumCols() == numCols);
+
+  CHECK(m->get(0, 0) == 1);
+  CHECK(m->get(1, 0) == 2);
+  CHECK(m->get(2, 0) == 3);
+  CHECK(m->get(3, 0) == 4);
+  CHECK(m->get(4, 0) == 5);
+  CHECK(m->get(5, 0) == 6);
+  CHECK(m->get(6, 0) == 7);
+  CHECK(m->get(7, 0) == 8);
+  CHECK(m->get(8, 0) == 9);
+  CHECK(m->get(9, 0) == 10);
+
+  DataObjectFactory::destroy(m);
+}
 TEST_CASE("Read - Frame", TAG_KERNELS) {
     Frame * f = nullptr;
     read(f, "./test/runtime/local/io/ReadCsv4.csv", nullptr);
@@ -96,4 +122,24 @@ TEST_CASE("Read - Frame", TAG_KERNELS) {
     DataObjectFactory::destroy(f);
     DataObjectFactory::destroy(c0);
     DataObjectFactory::destroy(c1);
+}
+
+TEST_CASE("ReadTdmsFrame - Integer Data Verification", TAG_KERNELS) {
+  Frame *m = NULL;
+  size_t numRows = 10;
+  size_t numCols = 10;
+  char filename[] = "./test/runtime/local/io/readTdmsFrame2.tdms";
+ 
+  read(m, filename, nullptr);
+
+  REQUIRE(m->getNumRows() == numRows);
+  REQUIRE(m->getNumCols() == numCols);
+
+  // Assertions to check the values
+
+  CHECK(m->getColumn<int64_t>(0)->get(0,0) == 10 );
+  CHECK(m->getColumn<int64_t>(0)->get(9,0) == 19 );
+
+
+  DataObjectFactory::destroy(m);
 }
