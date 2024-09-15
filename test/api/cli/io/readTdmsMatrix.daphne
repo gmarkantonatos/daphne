@@ -1,2 +1,0 @@
-a = readMatrix("test/api/cli/io/readTdms.tdms");
-print(a);

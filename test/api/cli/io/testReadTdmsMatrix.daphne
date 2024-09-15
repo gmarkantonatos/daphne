@@ -1,0 +1,6 @@
+# Test reading from a file when the file path is not trivially constant (i.e., a parameter to a UDF)
+def readMatrixFromTDMS(path: str) {
+    print(readMatrix(path));
+}
+
+readMatrixFromTDMS("test/api/cli/io/ReadTdms.tdms");

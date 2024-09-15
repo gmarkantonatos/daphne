@@ -58,10 +58,10 @@ TEST_CASE("readMatrixFromCSV", TAG_IO)
 
 TEST_CASE("readMatrixFromTdms", TAG_IO)
 {
-    compareDaphneToRef(dirPath + "testReadMatrixTdms.txt", dirPath + "ReadTdmsMatrix.daphne");
+    compareDaphneToRef(dirPath + "testReadMatrixTdms.txt", dirPath + "testReadTdmsMatrix.daphne");
 }
 
 TEST_CASE("readFrameFromTdms", TAG_IO)
 {
-    compareDaphneToRef(dirPath + "testReadFrameTdms.txt", dirPath + "ReadTdmsFrame.daphne");
+    compareDaphneToRef(dirPath + "testReadFrameTdms.txt", dirPath + "testReadTdmsFrame.daphne");
 }
